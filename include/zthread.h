@@ -38,6 +38,10 @@ CZMQ_EXPORT int
 CZMQ_EXPORT void *
     zthread_fork (zctx_t *ctx, zthread_attached_fn *thread_fn, void *args);
 
+// Get an unsigned integer that uniquely identifies current thread
+CZMQ_EXPORT unsigned int
+    zthread_id (void);
+
 //  Self test of this class
 CZMQ_EXPORT void
     zthread_test (bool verbose);

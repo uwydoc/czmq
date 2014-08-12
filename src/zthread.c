@@ -202,7 +202,20 @@ zthread_fork (zctx_t *ctx, zthread_attached_fn *thread_fn, void *args)
 
 
 //  --------------------------------------------------------------------------
-//  Selftest
+//  Get an unsigned integer that uniquely identifies current thread
+
+unsigned int
+zthread_id (void)
+{
+#if defined (__UNIX__)
+    pthread_t thread;
+    thread = pthread_self();
+    return thread.p;
+#elif defined (__WINDOWS__)
+    return GetCurrentThreadId();
+#endif
+}
+
 
 //  @selftest
 static void *

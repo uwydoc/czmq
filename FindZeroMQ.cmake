@@ -5,12 +5,14 @@ find_path(
     ZEROMQ_INCLUDE_DIRS
     NAMES zmq.h
     HINTS ${PC_ZEROMQ_INCLUDE_DIRS}
+          $ENV{ZMQ_ROOT}/include
 )
 
 find_library(
     ZEROMQ_LIBRARIES
-    NAMES zmq
+    NAMES zmq libzmq-v100-mt-3_2_4.lib
     HINTS ${PC_ZEROMQ_LIBRARY_DIRS}
+          $ENV{ZMQ_ROOT}/lib
 )
 
 include(FindPackageHandleStandardArgs)

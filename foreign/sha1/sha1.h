@@ -38,6 +38,8 @@
 #ifndef _NETINET6_SHA1_H_
 #define _NETINET6_SHA1_H_
 
+#include <stdint.h>
+
 struct sha1_ctxt
 {
 	union
