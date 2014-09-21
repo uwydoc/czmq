@@ -33,7 +33,7 @@
 #include "../include/czmq.h"
 #include "./zgossip_msg.h"
 
-typedef unsigned short int16_t;
+typedef short int16_t;
 typedef unsigned short uint16_t;
 
 //  Structure of our class

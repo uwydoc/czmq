@@ -208,9 +208,13 @@ unsigned int
 zthread_id (void)
 {
 #if defined (__UNIX__)
-    pthread_t thread;
-    thread = pthread_self();
-    return thread.p;
+    unsigned int id;
+    union {
+        unsigned int to;
+        pthread_t from;
+    } cast_union;
+    cast_union.from = pthread_self();
+    return cast_union.to;
 #elif defined (__WINDOWS__)
     return GetCurrentThreadId();
 #endif
